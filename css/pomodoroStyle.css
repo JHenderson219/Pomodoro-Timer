@@ -1,0 +1,16 @@
+body{
+	background-color: #000000;
+	background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: white;
+}
+.white-background{
+	background-color: white;
+	color: black;
+	content: 13%;
+	padding: 10px;
+	margin: 5px;
+}
+.btn-secondary{
+	color: black;
+}

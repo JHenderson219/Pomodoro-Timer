@@ -5,7 +5,7 @@ var breakLength = 5;
 		$("#sessionScreen").empty().append("<h3 class = 'text-center'>"+sessionLength+"</h3>")
 	}
 	function updateBreakScreen(){
-		$("#breakScreen").empty().append("<h3 class = 'text-center'>"+sessionLength+"</h3>")
+		$("#breakScreen").empty().append("<h3 class = 'text-center'>"+breakLength+"</h3>")
 	}
 	function reset(){
 		sessionLength = 25;
@@ -20,6 +20,14 @@ var breakLength = 5;
 	$("#sessionPlus").click(function(){
 		sessionLength++;
 		updateSessionScreen();
+	});
+	$("#breakMinus").click(function(){
+		breakLength--;
+		updateBreakScreen()
+	});
+	$("#breakPlus").click(function(){
+		breakLength++;
+		updateBreakScreen();
 	});
 	$("#resetButton").click(function(){
 		reset();

@@ -7,9 +7,6 @@ body{
 .white-background{
 	background-color: white;
 	color: black;
-	content: 13%;
-	padding: 10px;
-	margin: 5px;
 }
 .btn-secondary{
 	color: black;

@@ -119,7 +119,7 @@ var beep = new Audio ("alert.wav");
 		sessionLength--;
 		updateSessionScreen();
 		} else{
-			alert ("Can not decrese session time below 1 minute!");
+			alert ("Can not decrease session time below 1 minute!");
 		}
 	}
 
@@ -133,7 +133,7 @@ var beep = new Audio ("alert.wav");
 			breakLength--;
 			updateBreakScreen()
 		} else{
-			alert("Can not decrese break length below 1 minute!");
+			alert("Can not decrease break length below 1 minute!");
 		}
 	}
 

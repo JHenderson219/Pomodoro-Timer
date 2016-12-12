@@ -1,19 +1,19 @@
 $(document).ready(function() {
-var isSessionRunning = false;
-var isBreakRunning = false;
-var sessionReady = true;
-var breakReady = false;
-var sessionLength = 25;
-//Length of a session; with default ratio (60000) this will represent minutes; ratio 1000 will represent seconds.
-var breakLength = 5;
-//Length of a break; with default ratio (60000) this will represent minutes; ratio 1000 will represent seconds.
-var timeRatio = 60000;
-//Multiplier applied to milisecond ratings
-var sessionAlertTimeout;
-var sessionCountDownInterval;
-var breakAlertTimeout;
-var breakCountDownTInterval;
-var beep = new Audio ("alert.wav");
+	var isSessionRunning = false;
+	var isBreakRunning = false;
+	var sessionReady = true;
+	var breakReady = false;
+	var sessionLength = 25;
+	//Length of a session; with default ratio (60000) this will represent minutes; ratio 1000 will represent seconds.
+	var breakLength = 5;
+	//Length of a break; with default ratio (60000) this will represent minutes; ratio 1000 will represent seconds.
+	var timeRatio = 60000;
+	//Multiplier applied to milisecond ratings
+	var sessionAlertTimeout;
+	var sessionCountDownInterval;
+	var breakAlertTimeout;
+	var breakCountDownTInterval;
+	var beep = new Audio ("alert.wav");
 
 	function updateSessionScreen(){
 		$("#sessionScreen").empty().append("<h3 class = 'text-center'>"+sessionLength+"</h3>")

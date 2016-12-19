@@ -13,14 +13,19 @@ $(document).ready(function() {
 	var sessionCountDownInterval;
 	var breakAlertTimeout;
 	var breakCountDownTInterval;
-	var beep = new Audio ("alert.wav");
+	var beep = new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
 
+	//Updates session length counter on screen
 	function updateSessionScreen(){
 		$("#sessionScreen").empty().append("<h3 class = 'text-center'>"+sessionLength+"</h3>")
 	}
+
+	//Updates break length counter on screen
 	function updateBreakScreen(){
 		$("#breakScreen").empty().append("<h3 class = 'text-center'>"+breakLength+"</h3>")
 	}
+
+	//Clears variables that control break or session countdowns. Stops break or session
 	function stopBreakOrSession(){
 		if (isSessionRunning){
 			console.log("Session was stopped!")
@@ -34,6 +39,8 @@ $(document).ready(function() {
 			isBreakRunning=false;
 		}
 	}
+
+	//Resets application to defaults.
 	function reset(){
 		stopBreakOrSession();
 		sessionLength = 25;
@@ -46,7 +53,7 @@ $(document).ready(function() {
 		updateBreakScreen();
 	}
 
-
+	//Sends an alert and plays a sound, after a given duration in ms.
 	function sessionOverAlert(duration){
 		sessionAlertTimeout=window.setTimeout(function(){
 			isSessionRunning=false;
@@ -63,6 +70,7 @@ $(document).ready(function() {
 		},duration);
 	}
 
+	//Decrements session screen and sessionLength as time passes, according to timeRatio
 	function countDownSession(){
 		console.log("Session has begun");
 		sessionCountDownInterval=window.setInterval(function(){
@@ -71,6 +79,7 @@ $(document).ready(function() {
 		},timeRatio);
 	}
 
+	//Sends an alert and plays a sound when a break is over, after a given duration.
 	function breakOverAlert(duration){
 		breakAlertTimeout=window.setTimeout(function(){
 			isBreakRunning=false;
@@ -86,6 +95,7 @@ $(document).ready(function() {
 		},duration);
 	}
 
+	//Decrements break screen and breakLength as time passes, according to timeRatio
 	function countDownBreak(){
 		breakCountDownInterval=window.setInterval(function(){
 			breakLength--;
@@ -93,7 +103,11 @@ $(document).ready(function() {
 		},timeRatio);
 	}
 
-
+	//If session and break are not running, and session is ready to begin, begins a work session.
+	//Session time is equal to sessionLength * timeRatio.
+	//Otherwise, if a session has completed and it is time for a break, begins a break
+	//Break length is equal to breakLength * timeRatio.
+	//If the session or break is running, stops that break or session.
 	function startButton(){
 		console.log ("Start Button clicked. Is session running? "+isSessionRunning);
 		console.log ("Start button clicked. Is break running? "+isBreakRunning);
@@ -114,6 +128,7 @@ $(document).ready(function() {
 		}	
 	}
 
+	//Decrements the session length, preventing values below 1.
 	function sessionMinus(){
 		if(sessionLength>1){
 		sessionLength--;
@@ -123,11 +138,13 @@ $(document).ready(function() {
 		}
 	}
 
+	//Increments session length.
 	function sessionPlus(){
 		sessionLength++;
 		updateSessionScreen();		
 	}
 
+	//Decrements the break length, preventing values below 1.
 	function breakMinus(){
 		if(breakLength>1){
 			breakLength--;
@@ -137,6 +154,7 @@ $(document).ready(function() {
 		}
 	}
 
+	//Increments break length.
 	function breakPlus(){
 		breakLength++;
 		updateBreakScreen();
@@ -162,6 +180,8 @@ $(document).ready(function() {
 	$("#startButton").click(function(){
 		startButton();
 	});
+	
+
 	//Tap events for buttons
 	$("#sessionMinus").on("tap",function(){
 		sessionMinus();
